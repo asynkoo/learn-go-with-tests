@@ -13,11 +13,7 @@ func Hello(name, language string) string {
 		name = "World"
 	}
 
-	prefix := englishHelloPrefix
-
 	return greetingPrefix(language) + name
-
-	return prefix + name
 }
 
 func greetingPrefix(language string) (prefix string) {
