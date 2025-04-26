@@ -3,10 +3,21 @@ package main
 import "testing"
 
 func TestHello(t *testing.T) {
-	expected := "Hello, Chris"
-	actual := Hello("Chris")
+	t.Run("saying hello to people", func(t *testing.T) {
+		got := Hello("Chris")
+		want := "Hello, Chris"
 
-	if actual != expected {
-		t.Errorf("Expected %s but got %s", expected, actual)
-	}
+		if got != want {
+			t.Errorf("got %q, want %q", got, want)
+		}
+	})
+
+	t.Run("saying hello to empty string", func(t *testing.T) {
+		got := Hello("")
+		want := "Hello, World"
+
+		if got != want {
+			t.Errorf("got %q, want %q", got, want)
+		}
+	})
 }
